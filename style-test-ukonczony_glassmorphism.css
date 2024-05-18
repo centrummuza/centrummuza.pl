@@ -1,0 +1,198 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+:root {
+    --nie:#004ca3;
+    --ble:  #7be5e5;
+    --cfont:#00043b;
+    --log:rgb(255, 74, 74);
+    --b:rgb(255, 224, 224);
+    ;
+  }
+
+body {
+  margin: 40px;
+  font-family: 'Open Sans', 'sans-serif';
+  /*background-color: #a415b1dd;*/
+  
+  background: linear-gradient(
+   to top right  , var(--nie), var(--ble) );
+  
+ 
+  
+
+  
+h1, p {
+  margin: 0 0 1em 0;
+}
+
+.shantell-sans-font {text-shadow: 1px 1px 7px var(--cfont); color: var(--b);
+  font-family: "Shantell Sans";
+  
+  /*font-weight: 400;*/ font-size:16pt;
+  font-style: normal;
+  font-variation-settings:
+    "BNCE" 2,
+    "INFM" 2,
+    "SPAC" 1;
+}
+  /* font do CentrumMuza pod logo */
+  .protest-strike-regular {
+    font-family: "Protest Strike", sans-serif;
+    /*font-weight: 400;*/
+    font-optical-sizing: auto;
+    font-style: normal; 
+    font-size: 276%; letter-spacing: 10pt;
+    color: var(--log)
+    
+   }
+  
+   
+  
+}
+
+.wrapper { 
+  /*max-width: 940px;*/
+  
+  max-width:auto;
+  margin: 0 20px;
+  display: grid;
+  grid-gap: 10px; }
+
+  
+      
+            .muza { position: relative; 
+                top: -5rem;
+                left: 0;
+                    text-align: center; }
+ 
+/* Efekt glassmorphism */
+.wrapper > *:not(.topleft) {
+    background-color: rgba(255, 255, 255, 0.15); /* Transparentne tło */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Lekko podniesiony cień */
+    backdrop-filter: blur(10px); /* Rozmycie tła */
+    border-radius: 15px; /* Zaokrąglenie rogów */
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Logo bez efektu glassmorphism */
+  .topleft {
+    background: none; /* Usunięcie tła */
+    position: absolute;
+    top: -4rem;
+    left: -7rem;
+    max-width: 170rem;
+    height: auto;
+    z-index: -10;
+  }
+  
+@media screen and (min-width: 600px) {
+    /* Efekt glassmorphism */
+.wrapper > *:not(.topleft) {
+    background-color: rgba(255, 255, 255, 0.15); /* Transparentne tło */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Lekko podniesiony cień */
+    backdrop-filter: blur(10px); /* Rozmycie tła */
+    border-radius: 15px; /* Zaokrąglenie rogów */
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Logo bez efektu glassmorphism */
+  .topleft {
+    background: none; /* Usunięcie tła */
+    position: absolute;
+    top: -4rem;
+    left: -7rem;
+    max-width: 170rem;
+    height: auto;
+    z-index: -10;
+    animation: rotate 25s linear infinite;
+  }
+  
+}
+
+  /* no grid support? */
+  .block-a, .block-b, .block-c {
+    float: left;
+    /*width: 19.1489%;*/
+    /* responsywne kwadraty*/
+    aspect-ratio: 1 / 1 ;
+  max-height: 28vw;
+  /*width: 18vw;*/
+      
+  } 
+  
+  
+  /* muza - logo i 'centrum muza' w osi Y */
+
+
+
+  .content {
+    float: right;
+    width: auto;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+    grid-template-columns: 1fr 3fr;
+    grid-auto-rows: minmax(150px, auto);
+    
+  }
+  
+  .header, .footer {
+    grid-column: 1 / -1;
+    grid-template-rows: auto 1fr auto;
+    /* needed for the floated layout */
+    clear: both;
+    display: grid;
+   }
+  
+    
+  .block-a {z-index:100;
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .block-b {z-index:100;
+    grid-column: 1;
+    grid-row: 4;
+  }
+  
+  .block-c {z-index:100;
+    grid-column: 1;
+    grid-row: 6;
+  }
+  
+  .content {z-index:100;
+    grid-column: 2;
+    grid-row: 2 / 7;
+  }
+
+}
+
+.wrapper > * {
+  background-color: none; /* tło logo */
+ 
+  border-radius: 5px;
+  padding: 20px;
+  /*font-size: auto;*/
+  /* needed for the floated layout*/
+  margin-bottom: 10px;
+  /*align-items: center;
+    display: grid; centruje wszystko, tekst wskakuje pod spód*/
+    
+    
+  
+  }
+}
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) { 
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }
+}
+
+
